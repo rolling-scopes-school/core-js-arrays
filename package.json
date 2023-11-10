@@ -1,7 +1,7 @@
 {
-  "name": "core-js-strings",
+  "name": "core-js-arrays",
   "version": "1.0.0",
-  "description": "Core JS Strings",
+  "description": "Core JS Arrays",
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && mocha",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rolling-scopes-school/core-js-strings.git"
+    "url": "git+https://github.com/rolling-scopes-school/core-js-arrays.git"
   },
   "author": "valerydluski, natein",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "mocha": "^10.2.0"
   },
   "bugs": {
-    "url": "https://github.com/rolling-scopes-school/core-js-strings/issues"
+    "url": "https://github.com/rolling-scopes-school/core-js-arrays/issues"
   },
-  "homepage": "https://github.com/rolling-scopes-school/core-js-strings#readme"
+  "homepage": "https://github.com/rolling-scopes-school/core-js-arrays#readme"
 }
