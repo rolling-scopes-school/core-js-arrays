@@ -1,25 +1,9 @@
-function group(array, keySelector, valueSelector) {
-    const newMap = new Map();
-    array.map((item) => {
-      if (!newMap.has(keySelector(item))) {
-        console.log('hello')
-     newMap.set(keySelector(item), []);
-      }
-      const value = newMap.get(keySelector(item)).push(valueSelector(item));
-      
-      return newMap.set(
-        keySelector(item),
-        value
-      );
-    });
-    return newMap;
+function swapHeadAndTail(arr) {
+    const halfOfArrayLength = Math.floor(arr.length / 2);
+    const leftPart = arr.slice(0, halfOfArrayLength);
+    console.log(leftPart)
+    const rightPart = arr.slice(halfOfArrayLength);
+    return rightPart.concat(leftPart);
   }
 
-  console.log(group([
-    { country: 'Belarus', city: 'Brest' },
-    { country: 'Russia', city: 'Omsk' },
-    { country: 'Russia', city: 'Samara' },
-    { country: 'Belarus', city: 'Grodno' },
-    { country: 'Belarus', city: 'Minsk' },
-    { country: 'Poland', city: 'Lodz' },
-  ], (item) => item.country, (item) => item.city))
+  console.log(swapHeadAndTail([1,2, 3]))
