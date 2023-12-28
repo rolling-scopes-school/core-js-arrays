@@ -488,8 +488,15 @@ function sortCitiesArray(arr) {
  *           [0,0,0,1,0],
  *           [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const matrix = Array(n)
+    .fill()
+    .map((item, index) => {
+      return Array(n)
+        .fill(0)
+        .map((item2, index2) => (index === index2 ? 1 : 0));
+    });
+  return matrix;
 }
 
 /**
