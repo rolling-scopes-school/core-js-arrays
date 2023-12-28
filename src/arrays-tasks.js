@@ -244,8 +244,9 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  const NEW_ARR = arr.filter((el, index) => index % 2);
+  return NEW_ARR;
 }
 
 /**
@@ -279,8 +280,12 @@ function propagateItemsByPositionIndex(/* arr */) {
  *   [ 1,2,3,4,5,6,7,8,9,10 ] => [ 10, 9, 8 ]
  *   [ 10, 10, 10, 10 ] => [ 10, 10, 10 ]
  */
-function get3TopItems(/* arr */) {
-  throw new Error('Not implemented');
+function get3TopItems(arr) {
+  if (arr.length >= 3) {
+    const NEW_ARR = arr.splice(arr.length - 3);
+    return NEW_ARR.reverse();
+  }
+  return arr.reverse();
 }
 
 /**
@@ -296,8 +301,12 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const NEW_ARR = arr.filter((el) => el > 0 && Number.isInteger(el));
+  return NEW_ARR[NEW_ARR.length - 1];
 }
 
 /**
@@ -329,8 +338,14 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  if (arr.length === 0) {
+    return 0;
+  }
+  const SUM = arr.reduce((a, b) => {
+    return a + b;
+  }, 0);
+  return SUM;
 }
 
 /**
@@ -363,8 +378,15 @@ function getFalsyValuesCount(/* arr */) {
  *    [ null, undefined, null ], null => 2
  *    [ true, 0, 1, 'true' ], true => 1
  */
-function findAllOccurrences(/* arr, item */) {
-  throw new Error('Not implemented');
+function findAllOccurrences(arr, item) {
+  let count = 0;
+  arr.filter((el) => {
+    if (el === item) {
+      count += 1;
+    }
+    return count;
+  });
+  return count;
 }
 
 /**
