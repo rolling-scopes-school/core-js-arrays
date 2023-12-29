@@ -51,7 +51,7 @@ The goal of the assignment is to learn how to work with arrays in JS.
 9. You will see the number of passing and pending tests.
 
 ## Submit to [rs app](https://app.rs.school/)
-1. Save the solution and
+1. Commit and push your solutions to your fork
 2. Open rs app and login
 3. Go to submit task page
 4. Select your task (Core JS Arrays)
