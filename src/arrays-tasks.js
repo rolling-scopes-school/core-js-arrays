@@ -65,8 +65,18 @@ function doubleArray(arr) {
  *    [-1, 2, -5, -4, 0] => [ 2 ]
  *    [] => []
  */
-function getArrayOfPositives(/* arr */) {
-  throw new Error('Not implemented');
+function getArrayOfPositives(arr) {
+  if (arr.length === 0) {
+    return [];
+  }
+  const NEW_ARR = [];
+  arr.map((el) => {
+    if (el > 0) {
+      NEW_ARR.push(el);
+    }
+    return NEW_ARR;
+  });
+  return NEW_ARR;
 }
 
 /**
@@ -100,6 +110,15 @@ function getArrayOfStrings(arr) {
  */
 function removeFalsyValues(/* arr */) {
   throw new Error('Not implemented');
+  // const NEW_ARR = [];
+  // const FALSY = [false, null, 0, '', undefined, NaN];
+  // arr.map((el) => {
+  //   if (FALSY.indexOf(el) === -1) {
+  //     NEW_ARR.push(el);
+  //   }
+  //   return NEW_ARR;
+  // });
+  // return NEW_ARR;
 }
 
 /**
@@ -144,8 +163,6 @@ function getStringsLength(arr) {
  */
 function insertItem(/* arr, item, index */) {
   throw new Error('Not implemented');
-  // const newArr = [...arr.slice(0, index), item, ...arr.slice(index)];
-  // return newArr;
 }
 
 /**
@@ -191,13 +208,15 @@ function getTail(arr, n) {
  *       [ 30,31,32,33,34 ]
  *    ]
  *           =>
- *     '0,1,2,3,4\n'
- *    +'10,11,12,13,14\n'
+ *     '0,1,2,3,4\n'+'10,11,12,13,14\n'
  *    +'20,21,22,23,24\n'
  *    +'30,31,32,33,34'
  */
-function toCsvText(/* arr */) {
-  throw new Error('Not implemented');
+function toCsvText(arr) {
+  return arr
+    .map((el) => `${el.toString()}\n`)
+    .join('')
+    .slice(0, -1);
 }
 
 /**
@@ -582,8 +601,18 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  let head;
+  let tail;
+  if (arr.length % 2 === 0) {
+    head = arr.slice(arr.length / 2);
+    tail = arr.slice(0, arr.length / 2);
+    return head.concat(tail);
+  }
+  head = arr.slice(arr.length / 2 + 1);
+  tail = arr.slice(0, arr.length / 2);
+  const middle = arr.splice(arr.length / 2, 1);
+  return head.concat(middle).concat(tail);
 }
 
 module.exports = {
