@@ -26,7 +26,7 @@ function getIntervalArray(/* start, end */) {
 
 /**
  * Returns a new array where each element is the sum of the corresponding elements
- * from two arrays of equal length.
+ * from two arrays. Arrays can have different lengths.
  *
  * @param {array} arr1 - The first array.
  * @param {array} arr2 - The second array.

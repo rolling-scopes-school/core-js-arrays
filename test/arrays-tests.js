@@ -47,7 +47,7 @@ describe('arrays-tasks', () => {
   );
 
   it.optional(
-    'sumArrays should return the index of specified value if exists',
+    'sumArrays should return new array where each element is the sum of the corresponding elements from two arrays',
     () => {
       [
         {
