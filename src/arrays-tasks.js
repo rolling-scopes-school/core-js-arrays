@@ -33,11 +33,11 @@ function getIntervalArray(/* start, end */) {
  * @return {array} - An array containing the sum of corresponding elements.
  *
  * @example
- *    addArrays([1, 2, 3], [4, 5, 6]) => [5, 7, 9]
- *    addArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
- *    addArrays([-1, 0, 1], [1, 2, 3]) => [0, 2, 4]
+ *    sumArrays([1, 2, 3], [4, 5, 6]) => [5, 7, 9]
+ *    sumArrays([10, 20, 30], [5, 10, 15]) => [15, 30, 45]
+ *    sumArrays([-1, 0, 1], [1, 2, 3, 4]) => [0, 2, 4, 4]
  */
-function addArrays(/* arr1, arr2 */) {
+function sumArrays(/* arr1, arr2 */) {
   throw new Error('Not implemented');
 }
 
@@ -92,7 +92,7 @@ function removeFalsyValues(/* arr */) {
 }
 
 /**
- * Returns the array of string lengths from the specified string array.
+ * Returns an array containing the lengths of each string in a specified array of strings.
  *
  * @param {array} arr - The input array.
  * @return {array} - The array of string lengths.
@@ -252,8 +252,9 @@ function distinct(/* arr */) {
  * @return {array} - The n-dimensional array filled with zeros.
  *
  * @example
- *    createNDimensionalArray(2, 3) => [ [0, 0, 0], [0, 0, 0], [0, 0, 0] ]
- *    createNDimensionalArray(3, 2) => [ [ [0, 0], [0, 0] ], [ [0, 0], [0, 0] ] ]
+ *    createNDimensionalArray(2, 3) => [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+ *    createNDimensionalArray(3, 2) => [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]
+ *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
 function createNDimensionalArray(/* n, size */) {
@@ -465,9 +466,9 @@ function findCommonElements(/* arr1, arr2 */) {
  * @return {number} - The length of the longest increasing subsequence.
  *
  * @example
- *    findLongestIncreasingSubsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) => 6
- *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 3
- *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 4
+ *    findLongestIncreasingSubsequence([10, 22, 9, 33, 21, 50, 41, 60, 80]) => 3
+ *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => 2
+ *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => 3
  */
 function findLongestIncreasingSubsequence(/* nums */) {
   throw new Error('Not implemented');
@@ -550,7 +551,7 @@ function swapHeadAndTail(/* arr */) {
 
 module.exports = {
   getIntervalArray,
-  addArrays,
+  sumArrays,
   findElement,
   findAllOccurrences,
   removeFalsyValues,

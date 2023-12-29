@@ -46,7 +46,41 @@ describe('arrays-tasks', () => {
     }
   );
 
-  // addArrays
+  it.optional(
+    'sumArrays should return the index of specified value if exists',
+    () => {
+      [
+        {
+          arr1: [1, 2, 3],
+          arr2: [4, 5, 6],
+          expected: [5, 7, 9],
+        },
+        {
+          arr1: [10, 20, 30],
+          arr2: [5, 10, 15],
+          expected: [15, 30, 45],
+        },
+        {
+          arr1: [-1, 0, 1],
+          arr2: [1, 2, 3, 4],
+          expected: [0, 2, 4, 4],
+        },
+        {
+          arr1: [],
+          arr2: [1, 2, 3, 4],
+          expected: [1, 2, 3, 4],
+        },
+        {
+          arr1: [1, 2, 3, 4],
+          arr2: [],
+          expected: [1, 2, 3, 4],
+        },
+      ].forEach((data) => {
+        const actual = tasks.sumArrays(data.arr1, data.arr2);
+        assert.deepEqual(data.expected, actual);
+      });
+    }
+  );
 
   it.optional(
     'findElement should return the index of specified value if exists',
@@ -157,6 +191,10 @@ describe('arrays-tasks', () => {
           arr: ['angular', 'react', 'ember'],
           expected: [7, 5, 5],
         },
+        {
+          arr: [],
+          expected: [],
+        },
       ].forEach((data) => {
         const actual = tasks.getStringsLength(data.arr);
         assert.deepEqual(data.expected, actual);
@@ -200,12 +238,16 @@ describe('arrays-tasks', () => {
     () => {
       [
         {
-          arr: ['apple', 'banana', 'cherry'],
+          arr: ['potato', 'banana', 'cherry'],
           expected: true,
         },
         {
           arr: ['cat', 'dog', 'elephant'],
           expected: false,
+        },
+        {
+          arr: ['cat'],
+          expected: true,
         },
       ].forEach((data) => {
         const actual = tasks.isSameLength(data.arr);
@@ -271,6 +313,11 @@ describe('arrays-tasks', () => {
           n: 3,
           expected: ['a', 'b', 'c'],
         },
+        {
+          arr: ['c', 'a', 't'],
+          n: 0,
+          expected: [],
+        },
       ].forEach((data) => {
         assert.deepEqual(data.expected, tasks.getHead(data.arr, data.n));
       });
@@ -290,6 +337,11 @@ describe('arrays-tasks', () => {
           arr: ['a', 'b', 'c', 'd'],
           n: 3,
           expected: ['b', 'c', 'd'],
+        },
+        {
+          arr: ['c', 'a', 't'],
+          n: 0,
+          expected: [],
         },
       ].forEach((data) => {
         assert.deepEqual(data.expected, tasks.getTail(data.arr, data.n));
@@ -399,8 +451,34 @@ describe('arrays-tasks', () => {
           ],
         },
         {
-          n: 0,
-          size: 0,
+          n: 4,
+          size: 2,
+          expected: [
+            [
+              [
+                [0, 0],
+                [0, 0],
+              ],
+              [
+                [0, 0],
+                [0, 0],
+              ],
+            ],
+            [
+              [
+                [0, 0],
+                [0, 0],
+              ],
+              [
+                [0, 0],
+                [0, 0],
+              ],
+            ],
+          ],
+        },
+        {
+          n: 1,
+          size: 1,
           expected: [0],
         },
       ].forEach((data) => {
@@ -689,7 +767,7 @@ describe('arrays-tasks', () => {
       },
       {
         arr: [1, 2],
-        n: 2,
+        n: 1,
         expected: [2],
       },
       {
@@ -755,6 +833,10 @@ describe('arrays-tasks', () => {
         },
         {
           arr: [50, 3, 10, 7, 40, 80],
+          expected: 3,
+        },
+        {
+          arr: [41, 60, 80, 10, 22, 9, 33, 21, 50],
           expected: 3,
         },
       ].forEach((data) => {
@@ -948,20 +1030,6 @@ describe('strings-tasks optimal implementation', () => {
     }
     assert.equal(
       fnStr.includes('indexOf'),
-      true,
-      'You need to use a different method, look for the appropriate method in the documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
-    );
-  });
-
-  it.optional('optimal implementation of findAllOccurrences', function test() {
-    let fnStr = tasks.findAllOccurrences.toString();
-    const idx = fnStr.indexOf('{');
-    fnStr = fnStr.slice(idx);
-    if (!fnStr.includes('return')) {
-      this.skip();
-    }
-    assert.equal(
-      fnStr.includes('find'),
       true,
       'You need to use a different method, look for the appropriate method in the documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
     );
