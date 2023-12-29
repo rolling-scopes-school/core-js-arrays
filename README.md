@@ -39,7 +39,7 @@ The goal of the assignment is to learn how to work with arrays in JS.
     Uncomment the incoming parameters:
 
     ```javascript
-    function concatenateStrings(/* value1, value2 */)
+        function concatenateStrings(/* value1, value2 */)
     ```
 
     Remove the throwing error line from function body:
