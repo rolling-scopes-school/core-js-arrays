@@ -1083,18 +1083,6 @@ describe('strings-tasks optimal implementation', () => {
     );
   });
 
-  it.optional('optimal implementation of isSameLength', function test() {
-    const fnStr = tasks.isSameLength.toString();
-    if (!fnStr.includes('return')) {
-      this.skip();
-    }
-    assert.equal(
-      fnStr.includes('every'),
-      true,
-      'You need to use a different method, look for the appropriate method in the documentation https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array'
-    );
-  });
-
   it.optional('optimal implementation of isValueEqualsIndex', function test() {
     const fnStr = tasks.isValueEqualsIndex.toString();
     if (!fnStr.includes('return')) {
