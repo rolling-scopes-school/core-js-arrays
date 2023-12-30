@@ -130,7 +130,7 @@ function getAverage(/* arr */) {
  * @return {boolean} - True if all strings have the same length, false otherwise.
  *
  * @example
- *    isSameLength(['apple', 'banana', 'cherry']) => true
+ *    isSameLength(['orange', 'banana', 'cherry']) => true
  *    isSameLength(['cat', 'dog', 'elephant']) => false
  */
 function isSameLength(/* arr */) {
