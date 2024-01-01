@@ -34,8 +34,8 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(/* len */) {
-  throw new Error('Not implemented');
+function generateOdds(len) {
+  return Array.from(Array(len).fill(1), (_, elem) => 2 * elem + 1);
 }
 
 /**
@@ -108,17 +108,16 @@ function getArrayOfStrings(arr) {
  *    [ 1, 2, 3, 4, 5, 'false' ]         => [ 1, 2, 3, 4, 5, 'false' ]
  *    [ false, 0, NaN, '', undefined ]   => [ ]
  */
-function removeFalsyValues(/* arr */) {
-  throw new Error('Not implemented');
-  // const NEW_ARR = [];
-  // const FALSY = [false, null, 0, '', undefined, NaN];
-  // arr.map((el) => {
-  //   if (FALSY.indexOf(el) === -1) {
-  //     NEW_ARR.push(el);
-  //   }
-  //   return NEW_ARR;
-  // });
-  // return NEW_ARR;
+function removeFalsyValues(arr) {
+  const NEW_ARR = [];
+  const FALSY = [false, null, 0, '', undefined, NaN];
+  arr.map((el) => {
+    if (FALSY.indexOf(el) === -1 && !Number.isNaN(el)) {
+      NEW_ARR.push(el);
+    }
+    return NEW_ARR;
+  });
+  return NEW_ARR;
 }
 
 /**
@@ -161,8 +160,8 @@ function getStringsLength(arr) {
  *    [ 1, 3, 4, 5 ], 2, 1  => [ 1, 2, 3, 4, 5 ]
  *    [ 1, 'b', 'c'], 'x', 0  => [ 'x', 1, 'b', 'c' ]
  */
-function insertItem(/* arr, item, index */) {
-  throw new Error('Not implemented');
+function insertItem(arr, item, index) {
+  return arr.splice(index, 0, item);
 }
 
 /**
