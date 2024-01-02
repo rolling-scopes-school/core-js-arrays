@@ -297,8 +297,9 @@ function distinct(arr) {
  *    createNDimensionalArray(1, 1) => [0]
  */
 
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+function createNDimensionalArray(n, size) {
+  if (n === 1) return Array(size).fill(0);
+  return Array(size).fill(createNDimensionalArray(n - 1, size));
 }
 
 /**
@@ -368,8 +369,11 @@ function calculateBalance(arr) {
  *    createChunks([10, 20, 30, 40, 50], 1) => [[10], [20], [30], [40], [50]]
  */
 
-function createChunks(/* arr, chunkSize */) {
-  throw new Error('Not implemented');
+function createChunks(arr, chunkSize) {
+  const arrResult = Array.from({ length: arr.length }, (_, index) =>
+    arr.slice(index * chunkSize, index * chunkSize + chunkSize)
+  );
+  return arrResult.filter((e) => e.length);
 }
 
 /**
@@ -482,8 +486,8 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([]) => []
  */
 
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  return arr.map((x) => `#${x.toString(16).padStart(6, '0').toUpperCase()}`);
 }
 
 /**
@@ -518,8 +522,15 @@ function getMaxItems(arr, n) {
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
 
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  const result = [];
+  arr1.map((e) => {
+    if (arr2.includes(e)) {
+      return result.push(e);
+    }
+    return result;
+  });
+  return result;
 }
 
 /**
@@ -566,8 +577,8 @@ function findLongestIncreasingSubsequence(arr) {
  *  propagateItemsByPositionIndex([ 'a', 'b', 'c', null ]) => [ 'a', 'b', 'b', 'c', 'c', 'c',  null, null, null, null ]
  *  propagateItemsByPositionIndex([ 1,2,3,4,5 ]) => [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  return arr.map((e, i) => Array(i + 1).fill(e)).flat();
 }
 
 /**
@@ -584,8 +595,14 @@ function propagateItemsByPositionIndex(/* arr */) {
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
 
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  if (n > 0) {
+    return arr.concat(arr.splice(0, arr.length - n));
+  }
+  if (n < 0) {
+    return arr.concat(arr.splice(0, -n));
+  }
+  return arr;
 }
 
 /**
