@@ -29,29 +29,37 @@ The goal of the assignment is to learn how to work with arrays in JS.
       *   'aa',''    => 'aa'
       *   '',  'bb'  => 'bb'
       */
-      function concatenateStrings(value1, value2) {
+      function concatenateStrings(/* value1, value2 */) {
         throw new Error('Not implemented');
       }
     ```
     Read the task description in the comment above the function. Try to understand the idea. You can see the tests prepared if you don't understand it.
-7. Write your code in `src/*.js`.
+7. Write your code in `src/arrays-tasks.js`.
+
+    Uncomment the incoming parameters:
+
+    ```javascript
+        function concatenateStrings(/* value1, value2 */)
+    ```
 
     Remove the throwing error line from function body:
     ```javascript
         throw new Error('Not implemented'); 
     ```
     Implement the function by any way and verify your solution by running tests until the failed test become passed (green).
-8. Run `npm test` in command line. If everything is OK you can try to resolve the next task.
+8. Save the solution and run `npm test` in command line. If everything is OK you can try to resolve the next task.
 9. You will see the number of passing and pending tests.
 
 ## Submit to [rs app](https://app.rs.school/)
-1. Open rs app and login
-2. Go to submit task page
-3. Select your task (Core JS Arrays)
-4. Press submit button and enjoy
+1. Commit and push your solutions to your fork
+2. Open rs app and login
+3. Go to submit task page
+4. Select your task (Core JS Arrays)
+5. Press submit button and enjoy
 
 ## Notes
-* We recommend you to use nodejs of version 14 or lower. If you using any of features that does not supported by node `v14`, score won't be submitted.
+* We recommend you to use nodejs of version 16. If you using any of features that does not supported by node `v16`, score won't be submitted.
+* Installing nodejs `v16` is optional, you can run jobs using your version and not use methods that are not in nodejs `v16`.
 * Please be sure that each of your test in limit of 30sec.
 * You will get 0 (zero) if you have any eslint's errors or warnings.
 
@@ -68,6 +76,12 @@ https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 ```
 $ npm run lint -- --fix
 ``` 
+
+**Question:** Execution of tests "hangs" on one of them and does not display the result. What to do?<br>
+**Answer**: Check your solution for an infinite loop, fix it, and rerun the test.
+
+**Question:** The solution in the local repository succeeds and all tests are "green", but in the application some tests don't count. What to do?<br>
+**Answer**: [Update your repository fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork), update the local repository from the fork, run tests and fix your solution. After fixing, resubmit your solution for testing.
 
 ___
 The task based on https://github.com/rolling-scopes-school/js-assignments.
