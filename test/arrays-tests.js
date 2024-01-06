@@ -180,7 +180,7 @@ describe('arrays-tasks', () => {
   );
 
   it.optional(
-    'getStringsLength should return an array containing the lengths of each string,
+    'getStringsLength should return an array containing the lengths of each string',
     () => {
       [
         {
