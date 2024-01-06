@@ -180,7 +180,7 @@ describe('arrays-tasks', () => {
   );
 
   it.optional(
-    'getStringsLength should convert strings from specified array to uppercase',
+    'getStringsLength should return an array containing the lengths of each string,
     () => {
       [
         {
