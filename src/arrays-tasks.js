@@ -306,8 +306,7 @@ function flattenArray(nestedArray) {
  *   selectMany(['one','two','three'], (x) => x.split('')) =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 function selectMany(arr, childrenSelector) {
-  const a = arr.map(childrenSelector);
-  return a.flat(Number.POSITIVE_INFINITY);
+  return arr.flatMap(childrenSelector);
 }
 
 /**
