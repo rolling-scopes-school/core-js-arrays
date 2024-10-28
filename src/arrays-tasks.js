@@ -377,8 +377,16 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indexes) {
+  return indexes.length === 1
+    ? arr[indexes]
+    : indexes.reduce((acc, el, index) => {
+        if (index === 1) {
+          // eslint-disable-next-line no-param-reassign
+          acc = arr[acc];
+        }
+        return acc[el];
+      });
 }
 
 /**
@@ -449,8 +457,16 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  return arr.map(
+    (el) =>
+      `#${
+        el.toString(16).length === 6
+          ? el.toString(16).toUpperCase()
+          : '0'.repeat(6 - el.toString(16).length) +
+            el.toString(16).toUpperCase()
+      }`
+  );
 }
 
 /**
