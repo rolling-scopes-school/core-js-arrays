@@ -41,7 +41,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getIntervalArray(data.start, data.end);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -77,7 +77,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.sumArrays(data.arr1, data.arr2);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -104,8 +104,8 @@ describe('arrays-tasks', () => {
       ].forEach((data) => {
         const actual = tasks.findElement(data.arr, data.value);
         assert.equal(
-          data.expected,
           actual,
+          data.expected,
           `Index of '${data.value}' inside of [${data.arr}] = ${data.expected}, but actually ${actual}`
         );
       });
@@ -144,13 +144,13 @@ describe('arrays-tasks', () => {
       ].forEach((data) => {
         const actual = tasks.findAllOccurrences(data.arr, data.item);
         assert.equal(
-          data.expected,
           actual,
+          data.expected,
           `Number of occurrences of ${JSON.stringify(
             data.item
           )} in ${JSON.stringify(data.arr)} is ${
             data.expected
-          }, but actually ${actual})`
+          }, but actually ${actual}`
         );
       });
     }
@@ -174,7 +174,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.removeFalsyValues(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -197,7 +197,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getStringsLength(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -228,7 +228,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getAverage(data.arr);
-        assert.strictEqual(data.expected, actual);
+        assert.strictEqual(actual, data.expected);
       });
     }
   );
@@ -251,7 +251,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.isSameLength(data.arr);
-        assert.strictEqual(data.expected, actual);
+        assert.strictEqual(actual, data.expected);
       });
     }
   );
@@ -274,7 +274,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.isValueEqualsIndex(data.arr);
-        assert.strictEqual(data.expected, actual);
+        assert.strictEqual(actual, data.expected);
       });
     }
   );
@@ -295,7 +295,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       tasks.insertItem(data.arr, data.item, data.index);
-      assert.deepEqual(data.expected, data.arr);
+      assert.deepEqual(data.arr, data.expected);
     });
   });
 
@@ -319,7 +319,7 @@ describe('arrays-tasks', () => {
           expected: [],
         },
       ].forEach((data) => {
-        assert.deepEqual(data.expected, tasks.getHead(data.arr, data.n));
+        assert.deepEqual(tasks.getHead(data.arr, data.n), data.expected);
       });
     }
   );
@@ -344,7 +344,7 @@ describe('arrays-tasks', () => {
           expected: [],
         },
       ].forEach((data) => {
-        assert.deepEqual(data.expected, tasks.getTail(data.arr, data.n));
+        assert.deepEqual(tasks.getTail(data.arr, data.n), data.expected);
       });
     }
   );
@@ -366,8 +366,8 @@ describe('arrays-tasks', () => {
     ].forEach((data) => {
       const actual = tasks.doubleArray(data.arr);
       assert.deepEqual(
-        data.expected,
         actual,
+        data.expected,
         `The result of doubling [${data.arr}] is not correct`
       );
     });
@@ -391,7 +391,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.toStringList(data.arr);
-        assert.equal(data.expected, actual);
+        assert.equal(actual, data.expected);
       });
     }
   );
@@ -418,7 +418,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.distinct(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -483,7 +483,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.createNDimensionalArray(data.n, data.size);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -504,7 +504,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       const actual = tasks.flattenArray(data.arr);
-      assert.deepEqual(data.expected, actual);
+      assert.deepEqual(actual, data.expected);
     });
   });
 
@@ -537,7 +537,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.selectMany(data.arr, data.childrenSelector);
-        assert.deepStrictEqual(data.expected, actual);
+        assert.deepStrictEqual(actual, data.expected);
       });
     }
   );
@@ -560,7 +560,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       const actual = tasks.calculateBalance(data.arr);
-      assert.strictEqual(data.expected, actual);
+      assert.strictEqual(actual, data.expected);
     });
   });
 
@@ -584,7 +584,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       const actual = tasks.createChunks(data.arr, data.chunkSize);
-      assert.deepEqual(data.expected, actual);
+      assert.deepEqual(actual, data.expected);
     });
   });
 
@@ -609,7 +609,7 @@ describe('arrays-tasks', () => {
           expected: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31],
         },
       ].forEach((data) => {
-        assert.deepEqual(data.expected, tasks.generateOdds(data.len));
+        assert.deepEqual(tasks.generateOdds(data.len), data.expected);
       });
     }
   );
@@ -640,8 +640,8 @@ describe('arrays-tasks', () => {
       ].forEach((data) => {
         const actual = tasks.getElementByIndices(data.arr, data.indexes);
         assert.equal(
-          data.expected,
           actual,
+          data.expected,
           `getElementByIndices(${JSON.stringify(data.arr)}, ${JSON.stringify(
             data.indexes
           )}) returns an incorrect result. Expected ${
@@ -675,8 +675,8 @@ describe('arrays-tasks', () => {
       ].forEach((data) => {
         const actual = tasks.getFalsyValuesCount(data.arr);
         assert.deepEqual(
-          data.expected,
           actual,
+          data.expected,
           `Test failed for [${data.arr}]`
         );
       });
@@ -710,7 +710,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getIdentityMatrix(data.n);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -733,7 +733,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getIndicesOfOddNumbers(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -753,7 +753,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.getHexRGBValues(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -787,7 +787,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       const actual = tasks.getMaxItems(data.arr, data.n);
-      assert.deepEqual(data.expected, actual);
+      assert.deepEqual(actual, data.expected);
     });
   });
 
@@ -813,7 +813,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.findCommonElements(data.arr1, data.arr2);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -841,7 +841,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.findLongestIncreasingSubsequence(data.arr);
-        assert.strictEqual(data.expected, actual);
+        assert.strictEqual(actual, data.expected);
       });
     }
   );
@@ -872,7 +872,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.propagateItemsByPositionIndex(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -897,7 +897,7 @@ describe('arrays-tasks', () => {
       },
     ].forEach((data) => {
       const actual = tasks.shiftArray(data.arr, data.n);
-      assert.deepEqual(data.expected, actual);
+      assert.deepEqual(actual, data.expected);
     });
   });
 
@@ -953,7 +953,7 @@ describe('arrays-tasks', () => {
         },
       ].forEach((data) => {
         const actual = tasks.sortDigitNamesByNumericOrder(data.arr);
-        assert.deepEqual(data.expected, actual);
+        assert.deepEqual(actual, data.expected);
       });
     }
   );
@@ -985,8 +985,8 @@ describe('arrays-tasks', () => {
       ].forEach((data) => {
         const actual = tasks.swapHeadAndTail(Array.from(data.arr));
         assert.deepEqual(
-          data.expected,
           actual,
+          data.expected,
           `The result of swapping head and tail [${data.arr}] is not correct`
         );
       });
