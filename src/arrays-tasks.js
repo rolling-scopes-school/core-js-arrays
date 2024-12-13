@@ -520,8 +520,16 @@ function findCommonElements(arr1, arr2) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => longest is [3, 10] and [1, 20] => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => longest is [7, 40, 80] => 3
  */
-function findLongestIncreasingSubsequence(/* nums */) {
-  throw new Error('Not implemented');
+function findLongestIncreasingSubsequence(nums) {
+  if (nums.length === 0) return 0;
+
+  return nums.reduce(
+    (acc, num, i, arr) => {
+      const currentLength = i === 0 || num > arr[i - 1] ? acc[1] + 1 : 1;
+      return [Math.max(acc[0], currentLength), currentLength];
+    },
+    [0, 0]
+  )[0];
 }
 
 /**
@@ -556,15 +564,16 @@ function propagateItemsByPositionIndex(arr) {
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
 function shiftArray(arr, n) {
-  const len = arr.length;
-  const normalizedN = ((n % len) + len) % len;
-
-  // Step 1: Slice the array into two parts
-  const part1 = arr.slice(normalizedN);
-  const part2 = arr.slice(0, normalizedN);
-
-  // Step 2: Concatenate the parts
-  return part1.concat(part2);
+  let newArr = [];
+  if (n > 0) {
+    const arr1 = arr.splice(-n);
+    newArr = arr1.concat(arr);
+  }
+  if (n < 0) {
+    const arr1 = arr.splice(-n);
+    newArr = arr1.concat(arr);
+  }
+  return newArr;
 }
 
 /**
