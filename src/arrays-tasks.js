@@ -439,8 +439,14 @@ function getHexRGBValues(/* arr */) {
  *   getMaxItems([ 10, 2, 7, 5, 3, -5 ], 3) => [ 10, 7, 5 ]
  *   getMaxItems([ 10, 10, 10, 10 ], 3) => [ 10, 10, 10 ]
  */
-function getMaxItems(/* arr, n */) {
-  throw new Error('Not implemented');
+function getMaxItems(arr, n) {
+  if (n === 0 || arr.length === 0) {
+    return [];
+  }
+
+  const sortedArr = [...arr].sort((a, b) => b - a);
+
+  return sortedArr.slice(0, n);
 }
 
 /**
@@ -455,8 +461,9 @@ function getMaxItems(/* arr, n */) {
  *    findCommonElements(['a', 'b', 'c'], ['b', 'c', 'd']) => [ 'b', 'c' ]
  *    findCommonElements([1, 2, 3], ['a', 'b', 'c']) => []
  */
-function findCommonElements(/* arr1, arr2 */) {
-  throw new Error('Not implemented');
+function findCommonElements(arr1, arr2) {
+  const set2 = new Set(arr2);
+  return arr1.filter((item) => set2.has(item));
 }
 
 /**
@@ -470,8 +477,32 @@ function findCommonElements(/* arr1, arr2 */) {
  *    findLongestIncreasingSubsequence([3, 10, 2, 1, 20]) => longest is [3, 10] and [1, 20] => 2
  *    findLongestIncreasingSubsequence([50, 3, 10, 7, 40, 80]) => longest is [7, 40, 80] => 3
  */
-function findLongestIncreasingSubsequence(/* nums */) {
-  throw new Error('Not implemented');
+function findLongestIncreasingSubsequence(nums) {
+  if (nums.length === 0) {
+    return 0;
+  }
+
+  const { maxLength } = nums.reduce(
+    (acc, current, index) => {
+      if (index === 0) {
+        acc.currentLength = 1;
+        acc.maxLength = 1;
+      } else {
+        if (current > nums[index - 1]) {
+          acc.currentLength += 1;
+        } else {
+          acc.currentLength = 1;
+        }
+        if (acc.currentLength > acc.maxLength) {
+          acc.maxLength = acc.currentLength;
+        }
+      }
+      return acc;
+    },
+    { currentLength: 0, maxLength: 0 }
+  );
+
+  return maxLength;
 }
 
 /**
@@ -488,8 +519,12 @@ function findLongestIncreasingSubsequence(/* nums */) {
  *  propagateItemsByPositionIndex([ 'a', 'b', 'c', null ]) => [ 'a', 'b', 'b', 'c', 'c', 'c',  null, null, null, null ]
  *  propagateItemsByPositionIndex([ 1,2,3,4,5 ]) => [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  return arr.reduce((accumulator, item, index) => {
+    const repeat = index + 1;
+    const repeatedItems = Array(repeat).fill(item);
+    return accumulator.concat(repeatedItems);
+  }, []);
 }
 
 /**
@@ -505,8 +540,28 @@ function propagateItemsByPositionIndex(/* arr */) {
  *    shiftArray(['a', 'b', 'c', 'd'], -1) => ['b', 'c', 'd', 'a']
  *    shiftArray([10, 20, 30, 40, 50], -3) => [40, 50, 10, 20, 30]
  */
-function shiftArray(/* arr, n */) {
-  throw new Error('Not implemented');
+function shiftArray(arr, n) {
+  let startInd = n;
+  if (arr.length === 0) {
+    return [];
+  }
+
+  if (n === 0) {
+    return arr.slice();
+  }
+
+  if (n > arr.length) {
+    startInd %= arr.length;
+  }
+
+  if (n < 0) {
+    startInd += arr.length;
+  }
+
+  const shifted = arr.slice(-startInd);
+  const remaining = arr.slice(0, arr.length - startInd);
+
+  return shifted.concat(remaining);
 }
 
 /**
@@ -522,8 +577,21 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const digits = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
+  };
+
+  return arr.sort((a, b) => digits[a] - digits[b]);
 }
 
 /**
@@ -545,10 +613,34 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
-}
+function swapHeadAndTail(arr) {
+  let mid;
+  if (arr.length < 2) {
+    return arr;
+  }
+  if (arr.length % 2 === 0) {
+    mid = arr.length / 2;
+  } else {
+    mid = Math.floor(arr.length / 2);
+  }
 
+  const head = arr.slice(0, mid);
+  let tail;
+  const res = [];
+
+  if (arr.length % 2 === 0) {
+    tail = arr.slice(mid);
+    res.push(...tail);
+    res.push(...head);
+  } else {
+    tail = arr.slice(mid + 1);
+    res.push(...tail);
+    res.push(arr[mid]);
+    res.push(...head);
+  }
+
+  return res;
+}
 module.exports = {
   getIntervalArray,
   sumArrays,
